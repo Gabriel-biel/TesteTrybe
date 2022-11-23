@@ -1,0 +1,5 @@
+node_modules
+Senhas.md
+.vscode
+# Keep environment variables out of version control
+.env
