@@ -1,4 +1,4 @@
-import { styled } from "@stitches/react";
+import { styled } from '@stitches/react'
 
 export const TransactionsContainer = styled('main', {
   width: '100%',
@@ -16,28 +16,27 @@ export const TransactionsTable = styled('table', {
     padding: '1.5rem 2rem',
     background: '$gray700',
 
-    '&:first-child' : {
+    '&:first-child': {
       borderTopLeftRadius: '0.5rem',
       borderBottomLeftRadius: '0.5rem',
     },
 
-    '&:last-child' : {
+    '&:last-child': {
       borderTopRightRadius: '0.5rem',
       borderBottomRightRadius: '0.5rem',
-    }
+    },
   },
-
 })
 
 export const PriceHighlight = styled('span', {
   variants: {
     color: {
       green: {
-        color: '$green300'
+        color: '$green300',
       },
       red: {
-        color: '$red300'
-      }
-    }
-  }
+        color: '$red300',
+      },
+    },
+  },
 })

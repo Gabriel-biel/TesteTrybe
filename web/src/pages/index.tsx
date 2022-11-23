@@ -1,50 +1,55 @@
-import { HomeContainer } from "../styles/pages/home";
+import logoNGTrybe from '../assets/logo_ng.png'
+import Image from 'next/legacy/image'
+import { InputContainer, LoginContainer } from '../styles/pages/login'
+import { Lock, User } from 'phosphor-react'
+import { useContext } from 'react'
+import { AuthContext, SignInData } from '../contexts/AuthContext'
+import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 
-import { Summary } from "../components/Summary";
-import { Transactions } from "../components/Transactions";
-import { SearchForm } from "../components/SearchForm";
-import { Header } from "../components/Header";
-import { GetServerSideProps } from "next";
-import { parseCookies, destroyCookie } from "nookies";
-import { getAPIClient } from "../services/axios";
+export default function Login() {
+  const { signIn } = useContext(AuthContext)
 
+  const { register, handleSubmit } = useForm<SignInData>()
 
-export default function Home() {
+  async function handleSignIn({ username, password }: SignInData) {
+    try {
+      await signIn({ username, password })
+    } catch (error) {
+      toast.error(error.response.data.message)
+    }
+  }
+
   return (
-    <HomeContainer >
-      <Header />
-      <Summary />
-      <SearchForm />
-      <Transactions />
-    </HomeContainer>
+    <LoginContainer>
+      <section>
+        <Image src={logoNGTrybe} alt="" width={56} height={56} />
+        <h1>Faça seu login na plataforma</h1>
+      </section>
+      <form onSubmit={handleSubmit(handleSignIn)}>
+        <InputContainer>
+          <User size={18} />
+          <input
+            required
+            type="text"
+            placeholder="Usuário"
+            {...register('username')}
+          />
+        </InputContainer>
+        <InputContainer>
+          <Lock size={18} />
+          <input
+            required
+            type="password"
+            placeholder="Senha"
+            {...register('password')}
+          />
+        </InputContainer>
+        <button type="submit">ENTRAR</button>
+        <span>
+          Não tem uma conta? <a href="/signup">Registre-se</a>
+        </span>
+      </form>
+    </LoginContainer>
   )
-}
-
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const apiClient = getAPIClient(ctx)
-  const { '@ng_trybe.token-1.0.0': token } = parseCookies(ctx)
-
-  if(!token) {
-    return {
-      redirect: {
-        destination: '/login',
-        permanent: false
-      }
-    }
-  }
-
-  const response = await apiClient.get('/users')
-
-  if(!response.data.user.id) {
-    destroyCookie(ctx, '@ng_trybe.token-1.0.0')
-    return {
-      redirect: {
-        destination: '/login',
-        permanent: false
-      }
-    }
-  }
-  return {
-    props: {}
-  }
 }

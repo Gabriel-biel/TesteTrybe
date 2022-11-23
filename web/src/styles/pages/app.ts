@@ -1,5 +1,3 @@
-import { styled } from "..";
+import { styled } from '..'
 
-export const AppContainer = styled('div', {
-  
-})
+export const AppContainer = styled('div', {})

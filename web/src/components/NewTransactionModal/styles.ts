@@ -1,5 +1,6 @@
-import { styled } from "../../styles";
+import { styled } from '../../styles'
 import * as Dialog from '@radix-ui/react-dialog'
+import CurrencyInput from 'react-currency-masked-input'
 
 export const Overlay = styled(Dialog.Overlay, {
   position: 'fixed',
@@ -19,22 +20,11 @@ export const Content = styled(Dialog.Content, {
   left: '50%',
   transform: 'translate(-50%, -50%)',
 
-  form : {
+  form: {
     marginTop: '2rem',
     display: 'flex',
     flexDirection: 'column',
-    gap: '1rem',
-
-    input: {
-      borderRadius: 6,
-      background: '$gray900',
-      color: '$gray300',
-      padding: '1rem',
-
-      '&::placeholder': {
-        color: '$gray500',
-      }
-    },
+    gap: '0.5rem',
 
     button: {
       height: '3.625rem',
@@ -46,15 +36,65 @@ export const Content = styled(Dialog.Content, {
 
       '&:disabled': {
         opacity: 0.6,
-        cursor: 'not-allowed'
+        cursor: 'not-allowed',
       },
 
       '&:not(:disabled):hover': {
         background: '$green700',
-        transition: 'background-color 0.2s'
-      }
-    }
-  }
+        transition: 'background-color 0.2s',
+      },
+    },
+
+    span: {
+      display: 'block',
+      color: '$red300',
+      fontSize: '0.75rem',
+      textAlign: 'right',
+      marginBottom: '0.5rem',
+    },
+  },
+})
+
+export const Input = styled('input', {
+  borderRadius: 6,
+  background: '$gray900',
+  color: '$gray300',
+  padding: '1rem',
+
+  border: '1px solid tranparent',
+
+  '&::placeholder': {
+    color: '$gray500',
+  },
+
+  variants: {
+    color: {
+      red: {
+        border: '1px solid $red300',
+      },
+    },
+  },
+})
+
+export const MaskedInput = styled(CurrencyInput, {
+  borderRadius: 6,
+  background: '$gray900',
+  color: '$gray300',
+  padding: '1rem',
+
+  border: '1px solid tranparent',
+
+  '&::placeholder': {
+    color: '$gray500',
+  },
+
+  variants: {
+    color: {
+      red: {
+        border: '1px solid $red300',
+      },
+    },
+  },
 })
 
 export const CloseButton = styled(Dialog.Close, {
@@ -65,5 +105,3 @@ export const CloseButton = styled(Dialog.Close, {
   right: '1.5rem',
   color: '$gray500',
 })
-
-

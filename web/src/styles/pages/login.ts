@@ -1,4 +1,4 @@
-import { styled } from "..";
+import { styled } from '..'
 
 export const LoginContainer = styled('div', {
   display: 'flex',
@@ -11,15 +11,14 @@ export const LoginContainer = styled('div', {
 
   background: '$gray900',
 
-
   section: {
     maxWidth: '20rem',
-    
+
     h1: {
       marginTop: '4rem',
       fontSize: '3rem',
-      lineHeight: '3.5rem'
-    }
+      lineHeight: '3.5rem',
+    },
   },
 
   form: {
@@ -51,18 +50,18 @@ export const LoginContainer = styled('div', {
         color: '$green500',
       },
     },
-  }
+  },
 })
 
 export const InputContainer = styled('div', {
   width: '100%',
-  
+
   display: 'flex',
   padding: '1rem',
-  
+
   alignItems: 'center',
   justifyContent: 'space-between',
-  
+
   gap: '0.75rem',
   borderRadius: 6,
 

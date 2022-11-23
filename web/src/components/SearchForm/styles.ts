@@ -1,5 +1,5 @@
-import { styled } from "../../styles";
-import * as RadioGroup  from '@radix-ui/react-radio-group'
+import { styled } from '../../styles'
+import * as RadioGroup from '@radix-ui/react-radio-group'
 
 export const SearchFormContainer = styled('form', {
   maxWidth: 1120,
@@ -8,8 +8,8 @@ export const SearchFormContainer = styled('form', {
   alignItems: 'center',
   justifyContent: 'space-between',
   margin: '1.5rem auto 0',
-  
-  input : {
+
+  input: {
     width: '11rem',
     padding: '0.5rem',
     border: 'none',
@@ -34,7 +34,6 @@ export const TransactionFilterTypeButton = styled(RadioGroup.Item, {
 
   "&[data-state='checked']": {
     color: '$gray600',
-    background: '$white'
-    
-  }
+    background: '$white',
+  },
 })

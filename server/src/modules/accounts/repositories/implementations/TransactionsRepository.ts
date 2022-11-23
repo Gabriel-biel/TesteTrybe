@@ -28,6 +28,9 @@ export class TransactionsRepository implements ITransactionsRepository {
             },
           ],
         },
+        orderBy: {
+          created_at: 'desc',
+        },
       })
     }
 
@@ -36,6 +39,9 @@ export class TransactionsRepository implements ITransactionsRepository {
         where: {
           creditedAccountId: accountId,
         },
+        orderBy: {
+          created_at: 'desc',
+        },
       })
     }
 
@@ -43,6 +49,9 @@ export class TransactionsRepository implements ITransactionsRepository {
       transactions = await prisma.transaction.findMany({
         where: {
           debitedAccountId: accountId,
+        },
+        orderBy: {
+          created_at: 'desc',
         },
       })
     }

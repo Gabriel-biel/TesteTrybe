@@ -1,6 +1,10 @@
-import { useContext, useEffect, useState } from "react";
-import { TransactionsContext } from "../../contexts/TransactionContext";
-import { SearchFormContainer, TransactionFilterType, TransactionFilterTypeButton } from "./styles";
+import { useContext, useEffect, useState } from 'react'
+import { TransactionsContext } from '../../contexts/TransactionContext'
+import {
+  SearchFormContainer,
+  TransactionFilterType,
+  TransactionFilterTypeButton,
+} from './styles'
 
 export function SearchForm() {
   const [date, setDate] = useState('')
@@ -8,32 +12,32 @@ export function SearchForm() {
 
   const { fetchTransactions } = useContext(TransactionsContext)
 
-  useEffect(()=> {
+  useEffect(() => {
     fetchTransactions(type, date)
-  },[date, type])
+  }, [date, type])
 
   return (
     <SearchFormContainer>
-      <input 
-        type="date" 
-        placeholder="Filtrar por data" 
+      <input
+        type="date"
+        placeholder="Filtrar por data"
         onChange={(e) => setDate(e.target.value)}
         value={date}
       />
-      <TransactionFilterType 
+      <TransactionFilterType
         defaultValue=""
         onValueChange={(value) => setType(value)}
         value={type}
       >
         <TransactionFilterTypeButton value="">
-            Todas
-        </TransactionFilterTypeButton >
-        <TransactionFilterTypeButton  value="cash_in">
-            Entradas
-        </TransactionFilterTypeButton >
-        <TransactionFilterTypeButton  value="cash_out">
-            Saídas
-        </TransactionFilterTypeButton >
+          Todas
+        </TransactionFilterTypeButton>
+        <TransactionFilterTypeButton value="cash_in">
+          Entradas
+        </TransactionFilterTypeButton>
+        <TransactionFilterTypeButton value="cash_out">
+          Saídas
+        </TransactionFilterTypeButton>
       </TransactionFilterType>
     </SearchFormContainer>
   )

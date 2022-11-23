@@ -1,4 +1,4 @@
-import { styled } from "@stitches/react";
+import { styled } from '@stitches/react'
 
 export const SummaryContainer = styled('section', {
   width: '100%',
@@ -9,15 +9,15 @@ export const SummaryContainer = styled('section', {
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
   gap: '2rem',
-  
-  marginTop: '-5rem'
+
+  marginTop: '-5rem',
 })
 
 export const SummaryCard = styled('div', {
   background: '$gray600',
   borderRadius: 6,
   padding: '2rem',
-  
+
   header: {
     display: 'flex',
     alignItems: 'center',
@@ -28,14 +28,14 @@ export const SummaryCard = styled('div', {
   strong: {
     display: 'block',
     marginTop: '1rem',
-    fontSize: '1.5rem'
+    fontSize: '1.5rem',
   },
 
   variants: {
     color: {
       green: {
-        background: "$green700"
-      }
-    }
-  }
+        background: '$green700',
+      },
+    },
+  },
 })
