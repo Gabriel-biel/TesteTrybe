@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { TransactionsContext } from '../../contexts/TransactionContext'
 import { dateFormatter, priceFormatter } from '../../utils/formatter'
 import {
@@ -8,7 +8,11 @@ import {
 } from './styles'
 
 export function Transactions() {
-  const { transactions } = useContext(TransactionsContext)
+  const { transactions, fetchTransactions } = useContext(TransactionsContext)
+
+  useEffect(() => {
+    fetchTransactions()
+  }, [])
 
   return (
     <TransactionsContainer>

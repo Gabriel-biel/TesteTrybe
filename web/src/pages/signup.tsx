@@ -53,7 +53,7 @@ export default function Signup() {
         </InputContainer>
         <button type="submit">CADASTRAR</button>
         <span>
-          já tem uma conta? <a href="/login">Faça Login</a>
+          já tem uma conta? <a href="/">Faça Login</a>
         </span>
       </form>
     </LoginContainer>

@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from 'react'
+import { createContext, ReactNode, useState } from 'react'
 import { api } from '../services/api'
 
 interface Transaction {
@@ -43,10 +43,6 @@ export function TransactionProvider({ children }: TransactionProviderProps) {
     })
     setTransactions((state) => [response.data.transaction, ...state])
   }
-
-  useEffect(() => {
-    fetchTransactions()
-  }, [])
 
   return (
     <TransactionsContext.Provider

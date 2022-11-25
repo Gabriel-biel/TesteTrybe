@@ -1,10 +1,10 @@
 import * as Dialog from '@radix-ui/react-dialog'
-import { ChangeEvent, useContext, useState } from 'react'
+import { useContext } from 'react'
 import { TransactionsContext } from '../../contexts/TransactionContext'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
-import { Overlay, Content, CloseButton, Input, MaskedInput } from './styles'
+import { Overlay, Content, CloseButton, Input } from './styles'
 import { X } from 'phosphor-react'
 import { toast } from 'react-toastify'
 
@@ -20,7 +20,6 @@ const NewTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof NewTransactionFormSchema>
 
 export function NewTransactionModal() {
-  const [value, setValue] = useState('')
   const { createTransaction } = useContext(TransactionsContext)
 
   const {
@@ -60,13 +59,13 @@ export function NewTransactionModal() {
             color={errors.username && 'red'}
           />
           {errors.username && <span>{errors.username.message}</span>}
-          <MaskedInput
+          <Input
             type="number"
+            min={1}
+            {...register('value', { valueAsNumber: true })}
+            step=".01"
+            pattern="^\d*(.\d{0,2})?$"
             placeholder="Valor"
-            value={value}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setValue(e.target.value)
-            }
             color={errors.value && 'red'}
           />
           {errors.value && <span>{errors.value.message}</span>}

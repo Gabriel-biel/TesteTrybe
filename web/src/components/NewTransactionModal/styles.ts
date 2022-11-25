@@ -1,6 +1,5 @@
 import { styled } from '../../styles'
 import * as Dialog from '@radix-ui/react-dialog'
-import CurrencyInput from 'react-currency-masked-input'
 
 export const Overlay = styled(Dialog.Overlay, {
   position: 'fixed',
@@ -56,27 +55,6 @@ export const Content = styled(Dialog.Content, {
 })
 
 export const Input = styled('input', {
-  borderRadius: 6,
-  background: '$gray900',
-  color: '$gray300',
-  padding: '1rem',
-
-  border: '1px solid tranparent',
-
-  '&::placeholder': {
-    color: '$gray500',
-  },
-
-  variants: {
-    color: {
-      red: {
-        border: '1px solid $red300',
-      },
-    },
-  },
-})
-
-export const MaskedInput = styled(CurrencyInput, {
   borderRadius: 6,
   background: '$gray900',
   color: '$gray300',
