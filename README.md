@@ -1,6 +1,6 @@
 <h1 align="center"> TRYBE <> NG.CASH | TECH CHALLENGE</h1>
 
-![logo_ng](https://user-images.githubusercontent.com/61027045/203921990-17452006-20de-4d88-8031-74bc9e3a7125.png) 
+  ![logo_ng](https://user-images.githubusercontent.com/61027045/203921990-17452006-20de-4d88-8031-74bc9e3a7125.png)
 
 <h4 align="center"> :zap:Projeto finalizado:zap:</h4>
 
